@@ -16,6 +16,8 @@ Visual Studio 2019 を起動し、**新しいプロジェクトを作成** を�
 - コンソールアプリ（.NET Core）
 - クラス ライブラリ（.NET Standard）
 
+&nbsp;
+
 まず、コンソールアプリのプロジェクトを作成します。
 
 - プロジェクトのテンプレートは、**コンソールアプリ（.NET Core）** を選択します。
@@ -25,12 +27,14 @@ Visual Studio 2019 を起動し、**新しいプロジェクトを作成** を�
 
 &nbsp;
 
-次の Chapter でも再利用できるよう、クラスライブラリのプロジェクトを作成します。
+次に、クラスライブラリのプロジェクトを作成します。これは、次の Chapter でも再利用するために コンソールアプリと分けています。
 
 - ソリューションエクスプローラのソリューション名を右クリック > **追加** > **新しいプロジェクト** をクリック
 - プロジェクトのテンプレートは、**クラス ライブラリ（.NET Standard）** を選択します。
 - 「プロジェクト名」には、**DogClassifierCore** と入力します。
 - 「場所」は任意の名称を入力します。
+
+&nbsp;
 
 ### Nuget パッケージのインストール
 
@@ -62,9 +66,7 @@ Visual Studio のショートカットキー `Ctrl` + `Q` をクリックし、�
 
 ### TensorFlow の Model の利用準備
 
-次に、Chapter.1 にて、Custom Vision Service でエクスポートした TensorFlow のモデルをこのフォルダに入れましょう。
-
-エクスポートしたモデルの zip ファイルを解凍すると、以下2つのファイルが出力されます。
+次に、Chapter.1 にて、Custom Vision Service でエクスポートしたモデルの zip ファイルを解凍します。解凍すると、以下2つのファイルが出力されます。
 
 - labels.txt
 - model.pb
@@ -80,7 +82,6 @@ Visual Studio のショートカットキー `Ctrl` + `Q` をクリックし、�
 ![02-03-2](../images/02-03-2.png)
 
 &nbsp;
-
 
 ここで参考までに、[Netron](https://electronjs.org/apps/netron) というツールを使って、今回利用するモデルがどうなっているかを確認してみます。
 
@@ -256,7 +257,24 @@ namespace DogClassifierCore
 
 &nbsp;
 
->  # TODO: 追記予定
+### コードの解説
+
+簡単にコードを解説します。
+
+#### コンストラクター:  `public ModelConfigurator(MLContext mlContext)`
+
+この `ModelConfigurator` class のインスタンス生成時に ML.NET で利用する予測するための実態 `_predictionEngine` 変数 （`PredictionEngine<InputImage, PredictionResult>` 型） を生成しています。モデルの生成のメインは、`CreateMlModel()` メソッドで行っています。  
+
+#### `CreateMlModel()` メソッド
+
+予測をする際のパイプラインを構築しています。モデルが期待する画像のフォーマットに適応させるための `ResizeImages` メソッド、画像から Pixel の値を加工・抽出する `ExtractPixels` メソッドを利用しています。  
+また、`LoadTensorFlowModel` メソッドでモデルをロードします。
+
+詳細に興味がある方は、以下の公式ドキュメントをご参照ください。
+
+- [ResizeImages メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.resizeimages?view=ml-dotnet)
+- [ExtractPixels メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.extractpixels?view=ml-dotnet)
+- [LoadTensorFlowModel メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.tensorflowcatalog.loadtensorflowmodel?view=ml-dotnet-preview&viewFallbackFrom=ml-dotnet)
 
 &nbsp;
 

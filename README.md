@@ -14,8 +14,7 @@
 
 - Azure のサブスクリプションが必要となります。開始前にご準備ください。
 - Azure ポータルや Custom Vision ポータルでの操作には、モダンなブラウザー(Chrome や FireFox, Microsoft Edgeなど)が必要です。
-
-> TODO
+- C#, .NET Core で、コンソールアプリケーション、ASP.NET Core のアプリケーションの開発を行います。PCで必要なセットアップをお願いします。本コンテンツでは、Visual Studio 2019 での操作することを前提に解説を進めます。
 
 ## ハンズオンの構成
 
@@ -29,4 +28,4 @@
 
 ハンズオンを開始しましょう。
 
-[進む](./docs/01_create-custom-vision.md)
+[ハンズオンへ進む](./docs/01_create-custom-vision.md)
