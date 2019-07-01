@@ -1,4 +1,4 @@
-# Chapter 2. ConsoleApp + ML.NET で 画像分類器アプリを開発
+# Chapter 2. TensorFlow + ML.NET で画像分類のコンソールアプリを開発
 
 この Chapter では、Custom Vision Service でエクスポートした TensorFlow のモデルを利用し、Console App で、オフラインで画像分類ができるアプリを開発します。
 
