@@ -258,6 +258,8 @@ namespace DogClassifierCore
 
 >  # TODO: 追記予定
 
+&nbsp;
+
 ## STEP2-3 ConsoleApp から呼び出す
 
 ### 参照の追加
@@ -285,12 +287,12 @@ namespace ConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {
+        {}
             var mlContext = new MLContext();
             var modelConfigurator = new ModelConfigurator(mlContext);
 
 
-            // TODO !!!!! Chapter.1でダウンロードした画像の中で、testset のファイルのフルパスを入力してください。 
+            // TODO !!!!! Chapter.1でダウンロードした画像の中で、testset のファイルのフルパスを入力してください。
             var inputImagePath = @"C:\Users\yokohama\Desktop\dogs\dogs\testset\n02099601_3004.jpg";
 
 
@@ -309,7 +311,17 @@ namespace ConsoleApp
 
 &nbsp;
 
-## NEXT 
+## STEP2-4 デバッグ実行で動作確認
+
+**ConsoleApp** の `Program.cs` を実装後、コード内のコメントにあるファイルのフルパスを `inputImagePath` 変数に代入したことを確認しましょう。  
+
+確認したら、`F5` キーを押してデバッグ実行してみましょう。以下のように予測結果が表示されたら、正常に動作しています。
+
+![02-07](../images/02-047.png)
+
+&nbsp;
+
+## NEXT
 
 **おめでとうございます！**:star2:  
 Custom Vision で学習した犬の画像分類器と ML.NET を利用して、コンソールアプリで画像の分類ができるようになりました。
