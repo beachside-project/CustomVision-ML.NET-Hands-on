@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{CE82869F-CBBB-436B-81F6-698D26E907DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogClassifierCore", "DogClassifierCore\DogClassifierCore.csproj", "{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE82869F-CBBB-436B-81F6-698D26E907DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE82869F-CBBB-436B-81F6-698D26E907DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE82869F-CBBB-436B-81F6-698D26E907DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE82869F-CBBB-436B-81F6-698D26E907DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C667D942-29BB-4A7F-B4C3-C2A7FE17FFC1}
+	EndGlobalSection
+EndGlobal
