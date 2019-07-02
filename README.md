@@ -12,8 +12,8 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用してコンソールアプリに組み込み、画像分類ができる AI アプリにします。
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用して ASP.NET Core の Web アプリに組み込み、画像分類ができる AI アプリにします。
 
-> # WIP: 現在作成中
-> Custom Vision と、コンソールアプリ開発のコンテンツは完成していますが、
+> ### WIP: 現在コンテンツ作成中です。
+> Custom Vision と、コンソールアプリ開発のコンテンツは完成していますのでお試し可能です。  
 > ASP.NET Core のコンテンツは現在作成中です。
 
 ## ゴール
@@ -33,7 +33,7 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 |--:|---|
 |1|[Custom Vision で犬種判別の分類器作成](./docs/01_create-custom-vision.md)|
 |2|[TensorFlow + ML.NET で画像分類のコンソールアプリを開発](./docs/02_create-console-app.md)|
-|3|[TensorFlow + ML.NET で画像分類の Web API を開発](./docs/03_create-aspnetcore-app.md)|
+|3|[【WIP】TensorFlow + ML.NET で画像分類の Web API を開発](./docs/03_create-aspnetcore-app.md)|
 |4|[TAzure のリソースの削除](./docs/04_cleanup-resources.md)|
 
 ---
