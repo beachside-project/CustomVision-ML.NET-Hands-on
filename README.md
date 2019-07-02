@@ -1,14 +1,14 @@
-# CustomVision-ML.NET-Hands-on
+# Azure Custom Vision と ML.NET を使ったアプリケーション開発ハンズオン
 
 Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して、AI を組み込んだコンソールアプリと Web アプリケーションを開発をする入門者向けハンズオンです。  
-TensorFlow の学習モデルを [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用して .NET Core のアプリケーションに組み込みます。
+**TensorFlow** の学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用して .NET Core のアプリケーションに組み込みます。
 
 ## 概要
 
 このハンズオンでは、以下の内容を開発します。
 
-- Custom Vision を活用して、機械学習のコーディングをせずに、犬種の画像分類の学習モデルを開発します。
-- Custom Vision で作成した犬種の画像分類の学習モデルを、TensorFlow の学習モデルとしてエクスポートします。
+- Custom Vision を活用して、機械学習のコーディング無しで犬種の画像分類の学習モデルを作成します。
+- Custom Vision で作成した犬種の画像分類の学習モデルを、**TensorFlow** の学習モデルとしてエクスポートします。
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用してコンソールアプリに組み込み、画像分類ができる AI アプリにします。
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用して ASP.NET Core の Web アプリに組み込み、画像分類ができる AI アプリにします。
 

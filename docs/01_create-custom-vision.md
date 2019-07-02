@@ -22,10 +22,10 @@ Azure Custom Vision では以下のことができます。
 &nbsp;
 
 > **※ Custom Vision よりも [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) での実装をすぐにやりたい方は...**  
-> Custom Vision は手慣れているので、飛ばして、ML.NET の実装を試したい場合は、まず、この Chapter を流し読みしてどんなことをするかだけは把握してください。  
-> また、この Chapter で作成して次以降に必要リソース2つは、以下のリンクよりダウンロードできます。  
+> Custom Vision は手慣れているので、飛ばして、ML.NET の実装を試したい場合は、まず、この Chapter を流し読みしてどんなことをするかを把握してください。  
+> また、この Chapter で作成して次以降に必要リソース2つは、以下のリンクを開いて Download ボタンをクリックしてダウンロードしておきましょう。  
 >・[Custom Vision からエクスポートした TensorFlow の学習モデル](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/blob/master/src/exported-model/261bbf498bfc4287ad1da5bedc5066da.TensorFlow.zip)  
->・[犬のサンプル画像集](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/tree/master/src/sample-dog-images)  
+>・[犬のサンプル画像集](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/blob/master/src/sample-dog-images/dogs.zip)  
 
 &nbsp;
 
