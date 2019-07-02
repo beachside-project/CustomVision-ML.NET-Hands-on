@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{CE82869F-CBBB-436B-81F6-698D26E907DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{CE82869F-CBBB-436B-81F6-698D26E907DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogClassifierCore", "DogClassifierCore\DogClassifierCore.csproj", "{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogClassifierCore", "DogClassifierCore\DogClassifierCore.csproj", "{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogClassifier.Web", "DogClassifier.Web\DogClassifier.Web.csproj", "{932E4B0A-CA16-47F6-B51D-B7F78F3B5530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9255AE3-C167-4DE0-BA90-6B9EF1FDA030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932E4B0A-CA16-47F6-B51D-B7F78F3B5530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932E4B0A-CA16-47F6-B51D-B7F78F3B5530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932E4B0A-CA16-47F6-B51D-B7F78F3B5530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932E4B0A-CA16-47F6-B51D-B7F78F3B5530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

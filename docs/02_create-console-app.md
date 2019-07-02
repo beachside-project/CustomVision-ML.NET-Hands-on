@@ -58,7 +58,7 @@ Visual Studio のショートカットキー `Ctrl` + `Q` をクリックし、�
 
 ## STEP2-2 **DogClassifierCore** プロジェクトの実装
 
-まず、**DogClassifierCore** のプロジェクトを右クリック > 追加 > **フォルダ** をクリックして、フォルダを追加します。フォルダ名は、「TensorFlowModel」とします。
+まず、ソリューションエクスプローラーにて **DogClassifierCore** のプロジェクトを右クリック > 追加 > **フォルダ** をクリックして、フォルダを追加します。フォルダ名は、「TensorFlowModel」とします。
 
 また、自動生成された `Class1.cs` のファイルは削除します。
 
@@ -105,7 +105,7 @@ Visual Studio のショートカットキー `Ctrl` + `Q` をクリックし、�
 
 TensorFlow のモデルを利用する際に必要な設定を格納します。先ほど Netron で確認した値も利用します。
 
-**DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`TensorFlowModelSettings.cs` というファイル名でクラスを追加し、以下のように実装します。
+ソリューションエクスプローラーにて **DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`TensorFlowModelSettings.cs` というファイル名でクラスを追加し、以下のように実装します。
 
 ```cs
 namespace DogClassifierCore
@@ -127,7 +127,7 @@ namespace DogClassifierCore
 
 予測する画像データを格納する class を追加します。
 
-**DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`InputImage.cs` というファイル名でクラスを追加し、以下のように実装します。
+ソリューションエクスプローラーにて **DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`InputImage.cs` というファイル名でクラスを追加し、以下のように実装します。
 
 ```cs
 using System.Drawing;
@@ -155,7 +155,7 @@ namespace DogClassifierCore
 
 次に予測した結果を格納する class を追加します。
 
-**DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`PredictionResult.cs` というファイル名でクラスを追加し、以下のように実装します。
+ソリューションエクスプローラーにて **DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`PredictionResult.cs` というファイル名でクラスを追加し、以下のように実装します。
 
 ```cs
 using Microsoft.ML.Data;
@@ -174,7 +174,7 @@ namespace DogClassifierCore
 
 ### `ModelConfigurator` class の追加
 
-**DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`ModelConfigurator.cs` というファイル名でクラスを追加し、以下のように実装します。
+ソリューションエクスプローラーにて **DogClassifierCore** のプロジェクト上で右クリック > **追加** > **クラス** をクリックし、`ModelConfigurator.cs` というファイル名でクラスを追加し、以下のように実装します。
 
 ```cs
 using Microsoft.ML;
@@ -189,30 +189,31 @@ namespace DogClassifierCore
     public class ModelConfigurator
     {
         private readonly MLContext _mlContext;
+        private readonly PredictionEngine<InputImage, PredictionResult> _predictionEngine;
+
         private static readonly string TensorFlowModelBasePath = Path.Combine(Environment.CurrentDirectory, "TensorFlowModel");
         private static readonly string TensorFlowModelLocation = Path.Combine(TensorFlowModelBasePath, "model.pb");
         private static readonly string TensorFlowLabelsLocation = Path.Combine(TensorFlowModelBasePath, "labels.txt");
 
-        private static string[] _labels;
-        private ITransformer _mlModel;
-        private readonly PredictionEngine<InputImage, PredictionResult> _predictionEngine;
+        public string[] PredictionLabels { get; }
 
         public ModelConfigurator(MLContext mlContext)
         {
             _mlContext = mlContext;
-            _mlModel = CreateMlModel();
-            _predictionEngine = mlContext.Model.CreatePredictionEngine<InputImage, PredictionResult>(_mlModel);
-            _labels = File.ReadAllLines(TensorFlowLabelsLocation);
+            var mlModel = CreateMlModel();
+            _predictionEngine = mlContext.Model.CreatePredictionEngine<InputImage, PredictionResult>(mlModel);
+            PredictionLabels = GetPredictionLabels();
         }
 
+        public static string[] GetPredictionLabels() => File.ReadAllLines(TensorFlowLabelsLocation);
 
         public string Predict(InputImage inputImage)
         {
             var scores = _predictionEngine.Predict(inputImage).Scores;
-            var best =  scores.Max();
+            var best = scores.Max();
             var bestScore = best.ToString("F5");
 
-            var resultText = $"{_labels[scores.AsSpan().IndexOf(best)]}: {bestScore}";
+            var resultText = $"{PredictionLabels[scores.AsSpan().IndexOf(best)]}: {bestScore}";
             return resultText;
         }
 
@@ -234,10 +235,10 @@ namespace DogClassifierCore
                         inputColumnNames: new[] { TensorFlowModelSettings.InputColumnName },
                         addBatchDimensionInput: false));
 
+
             var model = pipeline.Fit(GetEmptyDataView());
             return model;
         }
-
 
 
         private IDataView GetEmptyDataView()
@@ -286,7 +287,7 @@ namespace DogClassifierCore
 
 ### 参照の追加
 
-**ConsoleApp** プロジェクトを右クリック > **追加** > **参照** をクリックします。  
+ソリューションエクスプローラーにて **ConsoleApp** プロジェクトを右クリック > **追加** > **参照** をクリックします。  
 左ペインで **プロジェクト** をクリックし、**DogClassifierCore** にチェックを入れて **OK** ボタンをクリックします。  
 これで、**ConsoleApp** プロジェクトから **DogClassifierCore** プロジェクトが参照できるようになります。
 

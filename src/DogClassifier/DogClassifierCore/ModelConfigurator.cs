@@ -10,31 +10,45 @@ namespace DogClassifierCore
     public class ModelConfigurator
     {
         private readonly MLContext _mlContext;
-        private static readonly string TensorFlowModelBasePath = Path.Combine(Environment.CurrentDirectory, "TensorFlowModel");
+        private readonly PredictionEngine<InputImage, PredictionResult> _predictionEngine;
+
+        private static readonly string TensorFlowModelBasePath = Path.Combine(@"..\", "TensorFlowModel");
         private static readonly string TensorFlowModelLocation = Path.Combine(TensorFlowModelBasePath, "model.pb");
         private static readonly string TensorFlowLabelsLocation = Path.Combine(TensorFlowModelBasePath, "labels.txt");
 
-        private static string[] _labels;
-        private ITransformer _mlModel;
-        private readonly PredictionEngine<InputImage, PredictionResult> _predictionEngine;
+        public string[] PredictionLabels { get; }
+
+        private static readonly string MlModeDir = Path.Combine(Environment.CurrentDirectory, "MlModel"); // Chapter 3 で追加
+        public static string MlModeLocation => Path.Combine(MlModeDir, "MLModel.zip"); // Chapter 3 で追加
 
         public ModelConfigurator(MLContext mlContext)
         {
             _mlContext = mlContext;
-            _mlModel = CreateMlModel();
-            _predictionEngine = mlContext.Model.CreatePredictionEngine<InputImage, PredictionResult>(_mlModel);
-            _labels = File.ReadAllLines(TensorFlowLabelsLocation);
+            var mlModel = CreateMlModel();
+            _predictionEngine = mlContext.Model.CreatePredictionEngine<InputImage, PredictionResult>(mlModel);
+            PredictionLabels = GetPredictionLabels();
+
+            SaveMlModel(mlModel); // Chapter 3 で追加
         }
 
+        public static string[] GetPredictionLabels() => File.ReadAllLines(TensorFlowLabelsLocation);
 
         public string Predict(InputImage inputImage)
         {
             var scores = _predictionEngine.Predict(inputImage).Scores;
-            var best =  scores.Max();
+            var best = scores.Max();
             var bestScore = best.ToString("F5");
 
-            var resultText = $"{_labels[scores.AsSpan().IndexOf(best)]}: {bestScore}";
+            var resultText = $"{PredictionLabels[scores.AsSpan().IndexOf(best)]}: {bestScore}";
             return resultText;
+        }
+
+
+        // Chapter 3 で追加
+        public void SaveMlModel(ITransformer mlModel)
+        {
+            Directory.CreateDirectory(MlModeDir);
+            _mlContext.Model.Save(mlModel, null, MlModeLocation);
         }
 
 

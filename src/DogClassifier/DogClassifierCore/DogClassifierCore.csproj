@@ -13,15 +13,11 @@
 
   <ItemGroup>
     <None Update="TensorFlowModel\labels.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="TensorFlowModel\model.pb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MlNetModels\" />
   </ItemGroup>
 
 </Project>
