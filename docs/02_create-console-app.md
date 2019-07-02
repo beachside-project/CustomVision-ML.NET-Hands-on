@@ -272,11 +272,13 @@ namespace DogClassifierCore
 `Fit` メソッドは、一般的には、学習したいデータを渡して学習するものですが、今回は学習済みのモデルをそのまま利用するため、空のデータを渡してモデルを生成しています。 
 
 &nbsp;
-> 詳細に興味がある方は、以下の公式ドキュメントをご参照ください。  
-> - [ResizeImages メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.resizeimages?view=ml-dotnet)
-> - [ExtractPixels メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.extractpixels?view=ml-dotnet)
-> - [LoadTensorFlowModel メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.tensorflowcatalog.loadtensorflowmodel?view=ml-dotnet-preview&viewFallbackFrom=ml-dotnet)
-> - [ML.NET APIs 全般](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml?view=ml-dotnet)
+
+詳細に興味がある方は、以下の公式ドキュメントをご参照ください。
+
+- [ResizeImages メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.resizeimages?view=ml-dotnet)
+- [ExtractPixels メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.extractpixels?view=ml-dotnet)
+- [LoadTensorFlowModel メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.tensorflowcatalog.loadtensorflowmodel?view=ml-dotnet-preview&viewFallbackFrom=ml-dotnet)
+- [ML.NET APIs 全般](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml?view=ml-dotnet)
 
 &nbsp;
 
@@ -352,4 +354,4 @@ Custom Vision で学習した犬の画像分類の学習モデルを ML.NET を�
 
 ---
 
-[戻る](../README.md) | [次へ進む](./03_create-aspnetcore-app.md)
+[戻る](./docs/01_create-custom-vision.md) | [次へ進む](./03_create-aspnetcore-app.md)
