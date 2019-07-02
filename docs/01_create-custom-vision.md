@@ -17,14 +17,15 @@ Azure Custom Vision では以下のことができます。
 他にも機能はありますので、詳細は[公式ドキュメント](https://docs.microsoft.com/ja-jp/azure/cognitive-services/custom-vision-service/)をご参照ください。
 
 今回は、作成した犬の画像の分類器をエクスポートして、TensorFlow モデルとしてアプリケーションに組み込んで活用します。  
-これによって、例えば、インターネットの通信を介さずに画像の分類を行うことができるようになります。  
+これによって、例えば、インターネットの通信を介さずに画像の分類を行うことができるようになります。
 
-> **Custom Vision よりも ML.NET での実装をすぐにやりたい方は...**
-> ドキュメントを流し読みして、ここでどんなことをやったかを把握してから次へ進むことが可能です。
-> その際、この Chapter で作る犬種の画像分類をする TensorFlow の学習モデルは、このコンテンツ内の以下よりダウンロードできます。
->  ・ [出力したTensorFlow の学習モデルのダウンロード](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/blob/master/src/exported-model/261bbf498bfc4287ad1da5bedc5066da.TensorFlow.zip)
-> また、テスト用の犬の画像も合わせてダウンロードして、次の Chapter へ進むことができます。
-> 
+&nbsp;
+
+> **※ Custom Vision よりも [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) での実装をすぐにやりたい方は...**  
+> Custom Vision は手慣れているので、飛ばして、ML.NET の実装を試したい場合は、まず、この Chapter を流し読みしてどんなことをするかだけは把握してください。  
+> また、この Chapter で作成して次以降に必要リソース2つは、以下のリンクよりダウンロードできます。  
+>・[Custom Vision からエクスポートした TensorFlow の学習モデル](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/blob/master/src/exported-model/261bbf498bfc4287ad1da5bedc5066da.TensorFlow.zip)  
+>・[犬のサンプル画像集](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/tree/master/src/sample-dog-images)  
 
 &nbsp;
 
