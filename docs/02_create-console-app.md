@@ -355,4 +355,4 @@ Custom Vision で学習した犬の画像分類の学習モデルを ML.NET を�
 
 ---
 
-[戻る](./docs/01_create-custom-vision.md) | [次へ進む](./03_create-aspnetcore-app.md)
+[戻る](./01_create-custom-vision.md) | [次へ進む](./03_create-aspnetcore-app.md)
