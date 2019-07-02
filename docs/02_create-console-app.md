@@ -1,10 +1,10 @@
-# Chapter 2. TensorFlow + ML.NET で画像分類のコンソールアプリを開発
+# Chapter 2. TensorFlow + [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) で画像分類のコンソールアプリを開発
 
 この Chapter では、Custom Vision Service でエクスポートした TensorFlow のモデルを利用し、Console App で、オフラインで画像分類ができるアプリを開発します。
 
-## ML.NET について
+## [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) について
 
-ML.NET を利用すると、.NET アプリケーションで機械学習を行ったり、学習済みのモデルを読み込んで機械学習を行うことができます。  
+[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を利用すると、.NET アプリケーションで機械学習を行ったり、学習済みのモデルを読み込んで機械学習を行うことができます。  
 ここでは、Chapter 1 で Custom Vision Service からエクスポートした TensorFlow のモデルを使って、画像分類ができるコンソールアプリを開発します。
 
 &nbsp;
@@ -38,7 +38,7 @@ Visual Studio 2019 を起動し、**新しいプロジェクトを作成** を�
 
 ### Nuget パッケージのインストール
 
-ML.NET を利用する上で必要となる Nuget パッケージをインストールします。  
+[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を利用する上で必要となる Nuget パッケージをインストールします。  
 Visual Studio のショートカットキー `Ctrl` + `Q` をクリックし、「nuget」と入力し、「ソリューションのNugetパッケージの管理」をクリックします。
 
 ![02-01](../images/02-01.png)
@@ -257,24 +257,26 @@ namespace DogClassifierCore
 
 &nbsp;
 
-### コードの解説
-
 簡単にコードを解説します。
 
-#### コンストラクター:  `public ModelConfigurator(MLContext mlContext)`
+> #### コンストラクター:  `public ModelConfigurator(MLContext mlContext)`
+> この `ModelConfigurator` class のインスタンス生成時に  `_predictionEngine` 変数 （`PredictionEngine<InputImage, PredictionResult>` 型） を生成しています。これは、画像分類をするためのオブジェクトです。  
+この作成の設定は、`CreateMlModel()` メソッドで行っています。  
 
-この `ModelConfigurator` class のインスタンス生成時に ML.NET で利用する予測するための実態 `_predictionEngine` 変数 （`PredictionEngine<InputImage, PredictionResult>` 型） を生成しています。モデルの生成のメインは、`CreateMlModel()` メソッドで行っています。  
+&nbsp;
 
-#### `CreateMlModel()` メソッド
+> ####  `CreateMlModel()` メソッド  
+> 処理の流れとして、パイプラインを作り、`Fit` メソッドを呼んでモデルを生成するという、Python のライブラリなどでモデルを作成するときと類似の流れとなっています。  
+モデルが期待する画像のフォーマットに適応させるための `ResizeImages` メソッド、画像から Pixel の値を加工・抽出する `ExtractPixels` メソッドを利用しています。これらの処理は利用する学習モデルに応じて多種多様な設定をすることになります。  
+また、`LoadTensorFlowModel` メソッドでモデルをロードします。  
+`Fit` メソッドは、一般的には、学習したいデータを渡して学習するものですが、今回は学習済みのモデルをそのまま利用するため、空のデータを渡してモデルを生成しています。 
 
-予測をする際のパイプラインを構築しています。モデルが期待する画像のフォーマットに適応させるための `ResizeImages` メソッド、画像から Pixel の値を加工・抽出する `ExtractPixels` メソッドを利用しています。  
-また、`LoadTensorFlowModel` メソッドでモデルをロードします。
-
-詳細に興味がある方は、以下の公式ドキュメントをご参照ください。
-
-- [ResizeImages メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.resizeimages?view=ml-dotnet)
-- [ExtractPixels メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.extractpixels?view=ml-dotnet)
-- [LoadTensorFlowModel メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.tensorflowcatalog.loadtensorflowmodel?view=ml-dotnet-preview&viewFallbackFrom=ml-dotnet)
+&nbsp;
+> 詳細に興味がある方は、以下の公式ドキュメントをご参照ください。  
+> - [ResizeImages メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.resizeimages?view=ml-dotnet)
+> - [ExtractPixels メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.imageestimatorscatalog.extractpixels?view=ml-dotnet)
+> - [LoadTensorFlowModel メソッド](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.tensorflowcatalog.loadtensorflowmodel?view=ml-dotnet-preview&viewFallbackFrom=ml-dotnet)
+> - [ML.NET APIs 全般](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml?view=ml-dotnet)
 
 &nbsp;
 
@@ -335,18 +337,18 @@ namespace ConsoleApp
 
 確認したら、`F5` キーを押してデバッグ実行してみましょう。以下のように予測結果が表示されたら、正常に動作しています。
 
-![02-07](../images/02-047.png)
+![02-07](../images/02-07.png)
 
 &nbsp;
 
 ## NEXT
 
 **おめでとうございます！**:star2:  
-Custom Vision で学習した犬の画像分類器と ML.NET を利用して、コンソールアプリで画像の分類ができるようになりました。
+Custom Vision で学習した犬の画像分類の学習モデルを ML.NET を利用して読み込み、コンソールアプリで画像の分類ができるようになりました。
 
 ここでは、1つのファイルの結果を予測し、TOP 1の結果を返す実装をしましたが、応用することで複数ファイルを分析したり、上位Nこの結果を返すことも容易に可能です。
 
-次の Chapter では、 ASP.NET Core を利用して画像分類ができるWebAPIを開発します。
+次の Chapter では、 ASP.NET Core を利用して画像分類ができる WebAPI を開発します。
 
 ---
 

@@ -12,8 +12,8 @@ namespace ConsoleApp
             var modelConfigurator = new ModelConfigurator(mlContext);
 
 
-            // TODO !!! Chapter.1でダウンロードした画像の中で、testset のファイルのフルパスを入力してください。 
-            var inputImagePath = @"C:\tmp\dogs\testset\n02099601_3004.jpg";
+            // TODO !!! Chapter.1でダウンロードした画像の中で、testset 内の任意のファイルのフルパスを入力してください。 
+            var inputImagePath = @"C:\local\tmp\dogs\testset\n02099601_3004.jpg";
 
 
             var inputImage = InputImage.Create(inputImagePath);
