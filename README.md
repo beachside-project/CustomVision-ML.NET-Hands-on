@@ -12,6 +12,8 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用してコンソールアプリに組み込み、画像分類ができる AI アプリにします。
 - エクスポートした学習モデルを、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) を活用して ASP.NET Core の Web アプリに組み込み、画像分類ができる AI アプリにします。
 
+![01-30](./images/00-overview.png)
+
 > ### WIP: 現在コンテンツ作成中です。
 > Custom Vision と、コンソールアプリ開発のコンテンツは完成していますのでお試し可能です。  
 > ASP.NET Core のコンテンツは現在作成中です。
