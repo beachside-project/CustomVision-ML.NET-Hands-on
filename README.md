@@ -32,7 +32,7 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 |1|[Custom Vision で犬種判別の分類器作成](./docs/01_create-custom-vision.md)|
 |2|[TensorFlow + ML.NET で画像分類のコンソールアプリを開発](./docs/02_create-console-app.md)|
 |3|[TensorFlow + ML.NET + ASP.NET Core で画像分類の Web アプリを開発](./docs/03_create-aspnetcore-app.md)|
-|4|[TAzure のリソースの削除](./docs/04_cleanup-resources.md)|
+|4|[Azure のリソース削除](./docs/04_cleanup_resources.md)|
 
 ---
 
