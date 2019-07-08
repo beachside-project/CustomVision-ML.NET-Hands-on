@@ -5,7 +5,7 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 
 ## 概要
 
-このハンズオンでは、以下の内容を開発します。
+このハンズオンでは、以下の開発をします。
 
 - Custom Vision を活用して、機械学習のコーディング無しで犬種の画像分類の学習モデルを作成します。
 - Custom Vision で作成した犬種の画像分類の学習モデルを、**TensorFlow** の学習モデルとしてエクスポートします。
@@ -14,14 +14,10 @@ Microsoft Azure の Cognitive Serivces の一つ、Custom Vision を活用して
 
 ![01-30](./images/00-overview.png)
 
-> ### WIP: 現在コンテンツ作成中です。
-> Custom Vision と、コンソールアプリ開発のコンテンツは完成していますのでお試し可能です。  
-> ASP.NET Core のコンテンツは現在作成中です。
-
 ## ゴール
 
 - Custom Vision の利用方法を理解する
-- 学習モデルをエクスポートし、.NET のアプリケーションでの活用方法を体験する
+- 学習モデルをエクスポートし、.NET Core アプリケーションでの活用方法を体験する
 
 ## 前提・準備
 
