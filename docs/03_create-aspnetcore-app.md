@@ -31,10 +31,10 @@ ASP.NET Core で `PredictionEnginePool` として学習モデルを利用する�
 このメソッドは、ML.NET で利用する学習モデルを zip ファイルとして指定したパスに保存しています。ASP.NET Core 側では、この zip ファイルから学習モデルをインスタンス化します。
 
 ```cs
-        public void SaveMlModel()
+        public void SaveMlModel(ITransformer mlModel)
         {
             Directory.CreateDirectory(MlModeDir);
-            _mlContext.Model.Save(_mlModel, null, MlModeLocation);
+            _mlContext.Model.Save(mlModel, null, MlModeLocation);
             Console.WriteLine($"Model saved:{MlModeLocation}"); // モデルが保存されたパスを表示
         }
 ```
@@ -51,7 +51,7 @@ ASP.NET Core で `PredictionEnginePool` として学習モデルを利用する�
             _predictionEngine = mlContext.Model.CreatePredictionEngine<InputImage, PredictionResult>(_mlModel);
             _labels = GetPredictionLabels();
 
-            SaveMlModel(); // Chapter 3 で追加
+            SaveMlModel(_mlModel); // Chapter 3 で追加
         }
 ```
 
@@ -161,13 +161,12 @@ namespace DogClassifier.Web.Models
 
 ### Dependency Injection の登録
 
-**DogClassifier.Web** プロジェクトの `Startup.cs` を開き、以下5つの `using` ステートメントを追加します。
+**DogClassifier.Web** プロジェクトの `Startup.cs` を開き、以下4つの `using` ステートメントを追加します。
 
 ```cs
 using DogClassifier.Web.Models;
 using DogClassifierCore;
 using Microsoft.Extensions.ML;
-using System;
 using System.IO;
 ```
 
@@ -187,7 +186,7 @@ using System.IO;
 
 &nbsp;
 
-次は `Startup` class の `ConfigureServices` メソッドに以下のように変更します。  
+次は `Startup` class の `ConfigureServices` メソッドを以下のように変更します。  
 `ConfigureServices` メソッドの全体を記載していますが、コメントにある通り `services.AddSingleton(_ =>` 以降の処理を追加しただけとなります。
 
 ```cs
@@ -224,7 +223,7 @@ using System.IO;
 
 ### HomeController の実装
 
-**DogClassifier.Web** プロジェクトの `HomeController.cs` を開き、以下6つの `using` ステートメントを追加します。
+**DogClassifier.Web** プロジェクトの `HomeController.cs` を開き、以下5つの `using` ステートメントを追加します。
 
 ```cs
 using DogClassifierCore;
@@ -232,7 +231,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.ML;
 using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 ```
 
 &nbsp;
@@ -286,7 +284,7 @@ using System.Threading.Tasks;
 
 ### Index.cshtml の実装
 
-**DogClassifier.Web** プロジェクトの Views フォルダー内の `Index.cshtml` を開き、以下のように実装します。
+**DogClassifier.Web** プロジェクトの Views/Home フォルダー内の `Index.cshtml` を開き、以下のように実装します。
 
 ```html
 @{
