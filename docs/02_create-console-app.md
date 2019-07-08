@@ -310,7 +310,7 @@ namespace ConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {}
+        {
             var mlContext = new MLContext();
             var modelConfigurator = new ModelConfigurator(mlContext);
 
