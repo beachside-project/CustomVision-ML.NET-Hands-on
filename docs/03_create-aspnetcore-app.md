@@ -8,6 +8,9 @@
 
 この問題を解決するため、`PredictionEnginePool` を利用して実装を行います。
 
+> ※ [こちら](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/tree/master/src/DogClassifier) に完成版のソースコードがあります。エラーなので詰まったときはご参照ください。
+
+
 &nbsp;
 
 ## STEP3-1 **DogClassifierCore** のプロジェクトでモデルの保存処理を追加
@@ -345,6 +348,8 @@ Visual Studio の上部でスタートアッププロジェクトを **DogClassi
 ![03-06](../images/03-06.png)
 
 &nbsp;
+
+> ※ [こちら](https://github.com/beachside-project/CustomVision-ML.NET-Hands-on/tree/master/src/DogClassifier) に完成版のソースコードがあります。エラーなので詰まったときはご参照ください。
 
 ## NEXT
 
