@@ -37,6 +37,7 @@ namespace DogClassifier.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [HttpPost]
         public async Task<IActionResult> Predict(IFormFile imageFile)
         {
             if (imageFile.Length == 0) return BadRequest();
@@ -50,9 +51,9 @@ namespace DogClassifier.Web.Controllers
                 };
 
                 var predictionResult = _predictionEnginePool.Predict(inputImage);
-                var resultText = _predictionDescriptor.GetBestScore(predictionResult);
+                ViewData["PredictionResult"] = _predictionDescriptor.GetBestScore(predictionResult);
 
-                return Ok(resultText);
+                return View(nameof(Index));
             }
         }
     }

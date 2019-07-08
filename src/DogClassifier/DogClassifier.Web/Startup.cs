@@ -7,12 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.ML;
-using Microsoft.ML;
+using System;
+using System.IO;
 
 namespace DogClassifier.Web
 {
     public class Startup
     {
+        private static readonly string AssetsBasePath = Path.Combine(Environment.CurrentDirectory, "Assets");
+        private static readonly string LabelsLocation = Path.Combine(AssetsBasePath, "labels.txt");
+        private static readonly string MlModelLocation = Path.Combine(AssetsBasePath, "MLModel.zip");
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,16 +38,14 @@ namespace DogClassifier.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // ここ以降の処理を追加
-            services.AddSingleton<MLContext>();
-            services.AddSingleton<ModelConfigurator>();
-
-            // サンプルコードということで無理やり初期化を実施し、ML.NET の学習モデルのファイルを保存
-            var modelConfigurator = services.BuildServiceProvider().GetService<ModelConfigurator>();
-
-            services.AddSingleton(_=>new PredictionDescriptor(modelConfigurator.PredictionLabels));
+            services.AddSingleton(_ =>
+            {
+                var labels = File.ReadAllLines(LabelsLocation);
+                return new PredictionDescriptor(labels);
+            });
 
             services.AddPredictionEnginePool<InputImage, PredictionResult>()
-                .FromFile(ModelConfigurator.MlModeLocation);
+                .FromFile(MlModelLocation);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

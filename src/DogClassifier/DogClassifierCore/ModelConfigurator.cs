@@ -12,7 +12,7 @@ namespace DogClassifierCore
         private readonly MLContext _mlContext;
         private readonly PredictionEngine<InputImage, PredictionResult> _predictionEngine;
 
-        private static readonly string TensorFlowModelBasePath = Path.Combine(@"..\", "TensorFlowModel");
+        private static readonly string TensorFlowModelBasePath = Path.Combine(Environment.CurrentDirectory, "TensorFlowModel");
         private static readonly string TensorFlowModelLocation = Path.Combine(TensorFlowModelBasePath, "model.pb");
         private static readonly string TensorFlowLabelsLocation = Path.Combine(TensorFlowModelBasePath, "labels.txt");
 
@@ -49,6 +49,7 @@ namespace DogClassifierCore
         {
             Directory.CreateDirectory(MlModeDir);
             _mlContext.Model.Save(mlModel, null, MlModeLocation);
+            Console.WriteLine($"Model saved:{MlModeLocation}");
         }
 
 

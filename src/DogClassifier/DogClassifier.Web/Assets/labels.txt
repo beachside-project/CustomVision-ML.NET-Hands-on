@@ -1,0 +1,7 @@
+beagle
+bernese-mountain-dog
+chihuahua
+eskimo-dog
+german-shepherd
+golden-retriever
+maltese-dog

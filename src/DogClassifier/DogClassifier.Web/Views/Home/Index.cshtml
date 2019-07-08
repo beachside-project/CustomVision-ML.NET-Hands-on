@@ -6,3 +6,28 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div>
+    <form asp-controller="Home" asp-action="predict" method="post" enctype="multipart/form-data">
+        <div>
+            <p>犬の画像をアップロードしてみましょう！</p>
+        </div>
+        <div>
+            <input type="file" name="imageFile">
+        </div>
+        <div>
+            <br />
+            <input type="submit" value="Upload File" name="submit">
+        </div>
+
+    </form>
+
+    <div>
+        @{
+            var predictionResult = ViewData["PredictionResult"];
+            if (ViewData != null)
+            {
+                <h2>@predictionResult</h2>
+            }
+        }
+    </div>
+</div>

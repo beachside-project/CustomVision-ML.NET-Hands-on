@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -15,6 +15,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DogClassifierCore\DogClassifierCore.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Assets\labels.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
